@@ -467,8 +467,8 @@ async def gay(ctx, member: discord.Member = None):
     if member is None:
         member = ctx.author
     if member.id == 549023304124465163:
-        gay = '10000';
-    elif member.id == 434254619842183168 or member == ctx.author:
+        gay = '100000'
+    if member.id == 434254619842183168:
         gay = '-100'
 
     embed = discord.Embed(title=format(member.display_name) + "'s " 'Gay percentage', colour=member.colour,
