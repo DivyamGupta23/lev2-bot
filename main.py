@@ -293,6 +293,21 @@ async def roast(ctx, member: discord.Member = None):
     await ctx.reply(format(member.mention) + ', ' + data["insult"] + ' ' + ':sob:')
 
 
+@client.command()
+@commands.cooldown(1, 10, commands.BucketType.user)
+async def fact(ctx, member: discord.Member = None):
+    if not member:
+        # await ctx.send('Self roast? :moyai:\n')
+        member = ctx.author
+    content = get('https://uselessfacts.jsph.pl/random.json?language=en').text
+    #print(content)
+    data = json.loads(content, )
+
+    # await ctx.send(format(member.mention)+',spam band kr :qiqidisgust:')
+    await ctx.reply(data["text"])
+
+
+
 @client.command(aliases=['massping'])
 @commands.is_owner()
 async def griff(ctx, member: discord.Member = None, amount=1):
